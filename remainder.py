@@ -10,6 +10,11 @@ from dateutils.parser import day_parser, month_parser, year_parser
 CONFIG = Configuration()
 
 def get_event_dates():
+    """
+    Get event dates
+    :return: List of dates when event occurs
+    :rtype: List[datetime.date]
+    """
     event_frequency = CONFIG.get_main_params().event_frequency
     day_info = day_parser(event_frequency)
     month = month_parser(event_frequency)
@@ -19,6 +24,11 @@ def get_event_dates():
 
 
 def notify(days):
+    """
+    Send a notification for an event
+    :param days: Days remaining for event
+    :type days: int
+    """
     date = datetime.date.today() + datetime.timedelta(days=days)
     sender_transport = SmtpSenderTransport(**CONFIG.get_sender_params())
     sender_transport.connect()
@@ -34,6 +44,9 @@ def notify(days):
 
 
 def should_notify():
+    """
+    Send notification if current day match event remainder and there are no notifications sent
+    """
     remainder_days = CONFIG.get_main_params().event_remainder
     remainder_days = remainder_days if type(remainder_days) == list else [remainder_days]
     remainder_days = [int(x) for x in remainder_days]
