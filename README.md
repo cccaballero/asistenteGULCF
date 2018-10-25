@@ -1,3 +1,3 @@
-# Herramienta de apoyo para gulcfg
+# Herramienta de apoyo para gulcf
 
-Asistente para gulcfg que implementa recordatorios
+Asistente para gulcf que implementa recordatorios
