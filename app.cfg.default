@@ -28,7 +28,7 @@ port = 587
 use_tls = False
 use_ssl = True
 from_address = myemail@test.cu
-to_adress = gulcf@cfg.jovenclub.cu
+to_address = gulcf@cfg.jovenclub.cu
 
 ; Configuración de recepción de correo
 [receiver]
