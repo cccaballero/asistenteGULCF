@@ -1,0 +1,45 @@
+[main]
+; Frecuencia del evento, se pueden usar sentencias en inglés como:
+; second saturday of every month (segundo sabado de cada mes)
+; last monday of every month (ultimo domingo de cada mes)
+; 17 of every month (dia 17 de cada mes)
+; third sunday of april (tercer domingo de abril)
+event_frequency = second friday of every month
+
+; Cantidad en dias en que se lanzará un recordatorio del evento
+; por ejemplo, el valor 5 indicará que se enviará una notificación
+; 5 dias antes del evento. Se puede definir el envio de multiples
+; notificaciones incluyendo la cantidad de dias separados por comas
+event_remainder = 15, 5
+
+; asunto del recordatorio
+remainder_subject = Recordatorio
+
+; mensaje del recordatorio
+remainder_message = Hola, nos vemos el próximo {date:%%A %%d-%%m-%%Y} en el encuentro del grupo.
+
+
+; Configuración de envío de correo
+[sender]
+server = smtp.test.cu
+username = usuario
+password = contraseña
+port = 587
+use_tls = False
+use_ssl = True
+from_address = myemail@test.cu
+to_adress = gulcf@cfg.jovenclub.cu
+
+; Configuración de recepción de correo
+[receiver]
+server = imap.test.cu
+username = usuario
+password = contraseña
+;port = 25
+;use_ssl = True
+
+; Configuración de la BD
+[db]
+uri       = sqlite://storage.sqlite
+migrate   = true
+pool_size = 10
